@@ -1,0 +1,287 @@
+body{
+    background-color: #f1f1f1;
+    font-family: 'Jockey One', sans-serif;
+}
+
+.logo img{
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    z-index: 1000;
+    justify-content: left;
+    padding: 10px 20px;
+    align-items: center;
+}
+
+.navbar{
+    overflow: hidden;
+    background-color: #ffffff;
+    width: 100%;
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    border-bottom: 1px solid black;
+
+    
+}
+
+.navbar a {
+    font-size: 16px;
+    color: #422828;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 25px;
+    padding: 10px 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: white;
+    margin: 15px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .navbar a:hover{
+    background-color: teal;
+  }
+  
+.announcement {
+    overflow: hidden;
+    border-radius: 10px;
+    background-color: #21CF04;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    width: 99%;
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    margin-top: 80px;
+    z-index: 999;
+}
+
+.announcement a {
+    font-size: 16px;
+    color: #ffffff;
+    text-align: center;
+    padding: 14px 16px;
+    font-family: 'Jockey One', sans-serif;
+
+}
+
+.time{
+    overflow: hidden;
+    border-radius: 10px;
+    background-color: #0075FF;
+    width: 15%;
+    justify-content: center;
+    align-items: center;
+
+    position: fixed;
+    top: 88px;
+    left: 8px;
+    z-index: 1000;
+    display: flex;
+    padding: 0px 5px;
+}
+
+.time a{
+    font-size: 16px;
+    color: #ffffff;
+    text-align: center;
+    text-decoration: none;
+    font-family: 'Jockey One', sans-serif;
+}
+
+.today{
+    overflow: hidden;
+    border-radius: 10px;
+    background-color: #ffffff;
+    width: 15%;
+    justify-content: center;
+    align-items: center;
+
+    position: fixed;
+    top: 200px;
+    left: 8px;
+    z-index: 1100;
+    display: flex;
+    padding: 350px 160px;
+
+}
+
+.week{
+
+    overflow: hidden;
+    border-radius: 10px;
+    background-color: #ffffff;
+    width: 15%;
+    justify-content: center;
+    align-items: center;
+
+    position: fixed;
+    top: 200px;
+    left: 635px;
+    z-index: 1100;
+    display: flex;
+    padding: 350px 160px;
+
+}
+
+
+.month{
+    overflow: hidden;
+    border-radius: 10px;
+    background-color: #ffffff;
+    width: 15%;
+    justify-content: center;
+    align-items: center;
+
+    position: fixed;
+    top: 200px;
+    left: 1265px;
+    z-index: 1100;
+    display: flex;
+    padding: 350px 160px;
+
+}
+.today a, .week a, .month a {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    width: 100%;
+}
+.matematika {
+    overflow: hidden;
+    border-radius: 10px;
+    background-color: #eeeeee;
+    width: 15%;
+
+    flex-direction: column; /* Display content vertically */
+    position: fixed;
+    top: 230px;
+    left: 25px;
+    z-index: 1200;
+    display: flex;
+    padding: 10px 260px 10px 20px; /* Adjust left and right padding */
+    transition: background-color 0.3s ease;
+    box-shadow: 0 8px 6px -6px rgb(53, 53, 53);
+    transition: 0.3s ease;
+}
+
+.matematika span {
+    text-align: left;
+    width: 100%;
+    
+}
+
+
+.matematika-content {
+    margin-top: 20px;
+    display: none;
+
+}
+
+.matematika.expanded .matematika-content {
+    display: block;
+}
+
+
+.matematika:hover{
+    background-color: teal;
+  }
+
+.matematika2{
+    overflow: hidden;
+    border-radius: 10px;
+    background-color: #eeeeee;
+    width: 15%;
+    justify-content: center;
+    align-items: center;
+
+    position: fixed;
+    top: 230px;
+    left: 650px;
+    z-index: 1200;
+    display: flex;
+    padding: 10px 140px;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 8px 6px -6px rgb(53, 53, 53);
+
+}
+
+.matematika2:hover{
+    background-color: teal;
+  }
+
+.matematika3{
+    overflow: hidden;
+    border-radius: 10px;
+    background-color: #eeeeee;
+    width: 15%;
+    justify-content: center;
+    align-items: center;
+
+    position: fixed;
+    top: 230px;
+    left: 1285px;
+    z-index: 1200;
+    display: flex;
+    padding: 10px 140px;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 8px 6px -6px rgb(53, 53, 53);
+}
+
+.matematika3:hover{
+    background-color: teal;
+  }
+
+.bindo{
+    overflow: hidden;
+    border-radius: 10px;
+    background-color: #eeeeee;
+    width: 15%;
+    justify-content: center;
+    align-items: center;
+
+    position: fixed;
+    top: 300px;
+    left: 650px;
+    z-index: 1200;
+    display: flex;
+    padding: 10px 140px;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 8px 6px -6px rgb(53, 53, 53);
+
+}
+
+.bindo:hover{
+    background-color: teal;
+  }
+.bindo2{
+    overflow: hidden;
+    border-radius: 10px;
+    background-color: #eeeeee;
+    width: 15%;
+    justify-content: center;
+    align-items: center;
+
+    position: fixed;
+    top: 300px;
+    left: 1280px;
+    z-index: 1200;
+    display: flex;
+    padding: 10px 140px;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 8px 6px -6px rgb(53, 53, 53);
+
+}
+
+.bindo2:hover{
+    background-color: teal;
+  }
+
+
+
+
+
+  
+  
+  
