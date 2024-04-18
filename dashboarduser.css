@@ -141,6 +141,7 @@ body{
 
 }
 .today a, .week a, .month a {
+    font-size: 30px;
     position: absolute;
     top: 0;
     left: 50%;
@@ -154,13 +155,12 @@ body{
     background-color: #eeeeee;
     width: 15%;
 
-    flex-direction: column; /* Display content vertically */
     position: fixed;
-    top: 230px;
+    top: 260px;
     left: 25px;
-    z-index: 1200;
+    z-index: 1300;
     display: flex;
-    padding: 10px 260px 10px 20px; /* Adjust left and right padding */
+    padding: 10px 260px 10px 20px;
     transition: background-color 0.3s ease;
     box-shadow: 0 8px 6px -6px rgb(53, 53, 53);
     transition: 0.3s ease;
@@ -193,18 +193,34 @@ body{
     border-radius: 10px;
     background-color: #eeeeee;
     width: 15%;
-    justify-content: center;
-    align-items: center;
+
 
     position: fixed;
-    top: 230px;
+    top: 260px;
     left: 650px;
-    z-index: 1200;
+    z-index: 1300;
     display: flex;
-    padding: 10px 140px;
+    padding: 10px 260px 10px 20px;
     transition: background-color 0.3s ease;
     box-shadow: 0 8px 6px -6px rgb(53, 53, 53);
 
+}
+
+.matematika2 span {
+    text-align: left;
+    width: 100%;
+    
+}
+
+
+.matematika2-content {
+    margin-top: 20px;
+    display: none;
+
+}
+
+.matematika2.expanded .matematika2-content {
+    display: block;
 }
 
 .matematika2:hover{
@@ -216,17 +232,33 @@ body{
     border-radius: 10px;
     background-color: #eeeeee;
     width: 15%;
-    justify-content: center;
-    align-items: center;
+
 
     position: fixed;
-    top: 230px;
+    top: 260px;
     left: 1285px;
-    z-index: 1200;
+    z-index: 1300;
     display: flex;
-    padding: 10px 140px;
+    padding: 10px 260px 10px 20px;
     transition: background-color 0.3s ease;
     box-shadow: 0 8px 6px -6px rgb(53, 53, 53);
+}
+
+.matematika3 span {
+    text-align: left;
+    width: 100%;
+    
+}
+
+
+.matematika3-content {
+    margin-top: 20px;
+    display: none;
+
+}
+
+.matematika3.expanded .matematika3-content {
+    display: block;
 }
 
 .matematika3:hover{
@@ -238,40 +270,70 @@ body{
     border-radius: 10px;
     background-color: #eeeeee;
     width: 15%;
-    justify-content: center;
-    align-items: center;
+
 
     position: fixed;
-    top: 300px;
+    top: 348px;
     left: 650px;
     z-index: 1200;
     display: flex;
-    padding: 10px 140px;
+    padding: 10px 260px 10px 20px;
     transition: background-color 0.3s ease;
     box-shadow: 0 8px 6px -6px rgb(53, 53, 53);
 
 }
 
+.bindo span {
+    text-align: left;
+    width: 100%;
+    
+}
+
+.bindo-content {
+    margin-top: 20px;
+    display: none;
+
+}
+
+.bindo.expanded .bindo-content {
+    display: block;
+}
+
 .bindo:hover{
     background-color: teal;
   }
+
 .bindo2{
     overflow: hidden;
     border-radius: 10px;
     background-color: #eeeeee;
     width: 15%;
-    justify-content: center;
-    align-items: center;
 
     position: fixed;
-    top: 300px;
+    top: 348px;
     left: 1280px;
     z-index: 1200;
     display: flex;
-    padding: 10px 140px;
+    padding: 10px 260px 10px 20px;
     transition: background-color 0.3s ease;
     box-shadow: 0 8px 6px -6px rgb(53, 53, 53);
 
+}
+
+.bindo2 span {
+    text-align: left;
+    width: 100%;
+    
+}
+
+.bindo2-content {
+    margin-top: 20px;
+    display: none;
+
+}
+
+.bindo2.expanded .bindo2-content {
+    display: block;
 }
 
 .bindo2:hover{
