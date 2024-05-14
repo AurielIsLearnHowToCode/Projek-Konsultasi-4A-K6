@@ -55,7 +55,7 @@
                     $query = mysqli_query($db, $sql);
 
                     while($kelas = mysqli_fetch_array($query)){
-                        echo "<option <?php value=".$kelas['ID']."?> <?php echo ($idKel == $kelas[ID_kelas]) ? 'selected' : '' ?>".$kelas['Nama']."</option>";
+                        echo "<option <?php value=".$kelas['ID']." ?> <?php echo ($idKel == $kelas[ID_kelas]) ? 'selected' : '' ?>".$kelas['Nama']."</option>";
                     }
                 ?>
             </select>
