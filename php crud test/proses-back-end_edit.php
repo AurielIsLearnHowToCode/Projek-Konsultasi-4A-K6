@@ -13,7 +13,7 @@ if(isset($_POST['simpan'])){
     $noTelp = $_POST['noTelp'];
 
     // buat query update
-    $sql = "SET FOREIGN_KEY_CHECKS = 0; UPDATE siswa SET Nama='$nama', Password='$password', ID_kelas='$kelas', No_telp='$noTelp' WHERE NIS='$nis'; SET FOREIGN_KEY_CHECKS = 1;";
+    $sql = "UPDATE siswa SET Nama='$nama', Password='$password', ID_kelas='$kelas', No_telp='$noTelp' WHERE NIS='$nis'";
     $query = mysqli_query($db, $sql);
 
     // apakah query update berhasil?

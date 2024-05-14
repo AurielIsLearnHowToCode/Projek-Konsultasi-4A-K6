@@ -12,11 +12,8 @@
 
     // buat query untuk ambil data dari database
     $sql = "SELECT * FROM siswa WHERE NIS=$id";
-    $sql2 = "SELECT * FROM siswa";
     $query = mysqli_query($db, $sql);
-    $query2 = mysqli_query($db, $sql2);
     $siswa = mysqli_fetch_assoc($query);
-    $kelas = mysqli_fetch_assoc($query2);
 
     // jika data yang di-edit tidak ditemukan
     if( mysqli_num_rows($query) < 1 ){
