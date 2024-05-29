@@ -4,9 +4,9 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Dashboard Siswa</title>
-        <link rel="stylesheet" href="dashboarduser.css">
+        <link rel="stylesheet" href="dashboardguru.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
+        <script src="scriptkalender.js"></script>
     </head>
 
     <body>
@@ -58,46 +58,37 @@
     <div class="button">
         <button class="btn-1">View All Tasks</button>
     </div>
-
-    <div class="subcontainer">
-        <div class="subjudul">
-            <p>Mata Pelajaran</p>
-            <p>Recap</p>
-        </div>
-    </div>
     
     <div class="maincontent">
         <div class="contentkiri">
-            <div class="judulkiri">
-                <h3>Senin</h3>
-                <div class="button2">
-                    <button class="btn-2">
-                        <i class="fa-solid fa-arrow-right"></i>
-                    </button>
-                    </div>
-            </div>
             <div class="isikiri">
-                <p>Fisika</p>
-                <p>Bahasa Indonesia</p>
-                <p>Matematika</p>
-                <p>Sejarah</p>
-                <p>Bahasa Jepang</p>
+                <p>Input Tugas</p>
+                <p>Input Event</p>
             </div>
         </div>
         <div class="gap"></div>
         <div class="contentkanan">
             <div class="kananatas">
-                <div class="isikananatas">
-                    <h3>Completed Tasks</h3>
-                    <p>2/4</p>
-                </div>
-            </div>
-            <div class="kananbawah">
-                <div class="isikananbawah">
-                    <h3>Missed Tasks</h3>
-                    <p>3</p>
-                </div>
-            </div>
+                <div class="calendar">
+                    <div class="month">
+                        <ul>
+                            <li class="prev" onclick="prevMonth()">&#10094;</li>
+                            <li class="next" onclick="nextMonth()">&#10095;</li>
+                            <li id="month-year"></li>
+                        </ul>
+                    </div>
+                    <ul class="weekdays">
+                        <li>Mo</li>
+                        <li>Tu</li>
+                        <li>We</li>
+                        <li>Th</li>
+                        <li>Fr</li>
+                        <li>Sa</li>
+                        <li>Su</li>
+                    </ul>
+                    <ul class="days" id="days"></ul>
+                </div>                
+                
         </div>
     </div>
         </body>
