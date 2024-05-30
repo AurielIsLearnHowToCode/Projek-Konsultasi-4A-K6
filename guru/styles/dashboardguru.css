@@ -151,7 +151,7 @@ body{
     font-size: 30px;
 }
 
-.subjudul p{
+.subjudul button{
     border-bottom: 3px solid #0075FF;
 }
 
@@ -210,10 +210,11 @@ body{
 }
 .isikiri{
    padding: 0px 10px 15px;
-   align-content: center;;
+   align-content: center;
 }
 
-.isikiri p{
+.isikiri a.button{
+    text-decoration: none;
     width: auto;
     border-radius: 20px;
     display: flex;

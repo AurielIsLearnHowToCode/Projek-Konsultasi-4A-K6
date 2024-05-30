@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Siswa</title>
+    <link rel="stylesheet" href="styles/input-tugas.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jockey+One&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="navbar">
+        <div class="logo">
+            <img src="../Assets/nugas.png" alt="Logo NUGAS" style="width: 150px;"> 
+        </div>
+        <a href="homeguru.php">Dashboard</a>
+        <a href="mapel.html">Mata Pelajaran</a>
+        <a href="event.html">Event</a>
+    </div>
+    <form action="process-input-tugas.php" class="form-container" action="#">
+        <label for="matapelajaran"></label>
+        <select name="mata pelajaran" id="matpel">
+            <option value="select">Pilih Mata Pelajaran</option>
+            <option value="PAI">PAI</option>
+            <option value="Bahasa Indonesia">Bahasa Indonesia</option>
+            <option value="Bahasa Inggris">Bahasa Inggris</option>
+            <option value="Bahasa Sunda">Bahasa Sunda</option>
+            <option value="Bahasa Jepang">Bahasa Jepang</option>
+            <option value="Matematika Wajib">Matematika Wajib</option>
+            <option value="Matematika IPA">Matematika IPA</option>
+            <option value="Fisika">Fisika</option>
+            <option value="Biologi">Biologi</option>
+            <option value="Kimia">Kimia</option>
+            <option value="Ekonomi">Ekonomi</option>
+            <option value="Sejarah">Sejarah</option>
+        </select>
+        <br>
+        <textarea id="deskripsi" name="deskripsi" placeholder="Deskripsi tugas..."></textarea>
+    </form>
+
+    <div class="center">
+        <input type="checkbox" id="click">
+        <label for="click" class="click">Input</label>
+        <div class="content">
+            <div class="header">
+                <h2>Apakah Anda Ingin Menambahkan Tugas?</h2>
+            </div>
+            <div class="buttons">
+                <div class="buttons-item">
+                <label for="click" name="submit" class="yes-btn">Ya</label>
+                <label for="click" class="no-btn">Tidak</label>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

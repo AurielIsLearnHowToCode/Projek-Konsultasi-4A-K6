@@ -5,7 +5,7 @@ header("Pragma: no-cache"); // HTTP 1.0.
 header("Expires: 0"); // Proxies.
 
 if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
-    header('Location: log.php'); // Redirect ke halaman login jika tidak ada session login
+    header('Location: ../login-page/LoginGuru.php'); // Redirect ke halaman login jika tidak ada session login
     exit;
 }
 ?>
@@ -30,7 +30,7 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
         <div class="logo">
             <img src="../Assets/nugas.png" alt="Logo NUGAS" style="width: 150px;"> 
         </div>
-        <a href="home.html">Dashboard</a>
+        <a href="homeguru.php">Dashboard</a>
         <a href="mapel.html">Mata Pelajaran</a>
         <a href="event.html">Event</a>
     </div>

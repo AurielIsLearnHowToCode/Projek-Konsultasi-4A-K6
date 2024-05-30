@@ -17,7 +17,7 @@ if(isset($_POST['login'])) {
     if($result->num_rows > 0){
         $_SESSION['loggedin'] = true; // Menyimpan status login di session
         $_SESSION['username'] = $username; // Menyimpan username di session jika diperlukan
-        header("location: ../guru/homeguru.html");
+        header("location: ../guru/homeguru.php");
         exit();
     } else {
         $loginfailed = "Akun tidak ditemukan";

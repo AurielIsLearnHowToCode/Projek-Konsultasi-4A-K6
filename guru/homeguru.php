@@ -1,3 +1,6 @@
+<?php
+    include "../service/database.php";
+?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -17,7 +20,7 @@
             </div>
 
             <div class="menu">
-                <a href="homeguru.html">Dashboard</a>
+                <a href="homeguru.php">Dashboard</a>
                 <a href="mapel.html">Mata Pelajaran</a>
                 <a href="event.html">Event</a>
             </div>
@@ -31,39 +34,55 @@
             </div>
         </div>
     </div>
-
-
         <div class="announcement">
             <div class="time">
                 <p>12:00</p>
             </div>
             <h2>IMPORTANT ANNOUNCEMENT</h2>
         </div>
-        
+    
+
     <div class="board">
+    <?php
+        $sql = "SELECT count(*) as 'today' FROM tugas WHERE deadline BETWEEN DATE(NOW()) AND DATE_ADD(DATE(NOW()), INTERVAL 1 DAY);";
+        $query = mysqli_query($db, $sql);
+        $hasil = mysqli_fetch_array($query)
+    ?>
         <div class="item-board">
-            <h3>2</h3>
+            <?php echo "<h3>".$hasil['today']."</h3>"; ?>
             <p class="yellow">Due Today</p>
         </div>
+
+    <?php
+        $sql = "SELECT count(*) as 'week' FROM tugas WHERE deadline BETWEEN DATE(NOW()) AND DATE_ADD(DATE(NOW()), INTERVAL 7 DAY);";
+        $query = mysqli_query($db, $sql);
+        $hasil = mysqli_fetch_array($query)
+    ?>
         <div class="item-board">
-            <h3>3</h3>
+            <?php echo "<h3>".$hasil['week']."</h3>"; ?>
             <p class="green">Due This Week</p>
         </div>
+
+    <?php
+        $sql = "SELECT count(*) 'month' FROM tugas WHERE deadline BETWEEN DATE(NOW()) AND DATE_ADD(DATE(NOW()), INTERVAL 30 DAY);";
+        $query = mysqli_query($db, $sql);
+        $hasil = mysqli_fetch_array($query)
+    ?>
         <div class="item-board">
-            <h3>4</h3>
+            <?php echo "<h3>".$hasil['month']."</h3>"; ?>
             <p class="blue">Due This Month</p>
         </div>
     </div>
     
     <div class="button">
-        <button href="deadline.html" class="btn-1">View All Tasks</button>
+        <a href="deadline.php" class="btn-1">View All Tasks</a>
     </div>
     
     <div class="maincontent">
         <div class="contentkiri">
             <div class="isikiri">
-                <p>Input Tugas</p>
-                <p>Input Event</p>
+                <a class="button" href="#">Input Tugas</a>
+                <a class="button" href="#">Input Event</a>
             </div>
         </div>
         <div class="gap"></div>
