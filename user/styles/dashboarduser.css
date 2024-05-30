@@ -1,0 +1,294 @@
+@import url('https://fonts.googleapis.com/css2?family=Jockey+One&display=swap');
+
+body{
+    background-color: #f1f1f1;
+    font-family: "Jockey One", sans-serif;
+}
+
+
+.header{
+ top: 0;
+ left: 0;
+ position: fixed;
+}
+
+.logo img{
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    z-index: 1000;
+    justify-content: left;
+    padding: 10px 20px;
+    align-items: center;
+}
+
+.navbar{
+    background-color: #f1f1f1;
+    width: 100%;
+    display: flex;
+}
+
+.menu{
+    background-color: #f1f1f1;
+    width: 100%;
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    border-bottom: 1px solid black;
+}
+
+.menu a {
+    font-size: 16px;
+    color: #a1a1a1;
+    text-align: center;
+
+    border-radius: 25px;
+    padding: 10px 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: white;
+    margin: 15px;
+    
+  }
+  
+  .menu a:hover{
+    background-color: white;
+  }
+
+  .username{
+    background-color: white;
+  }
+  
+.announcement {
+    border-radius: 10px;
+    gap: 30%;
+    background-color: #21CF04;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    width: 100%;
+    display: flex;
+    margin-top: 80px;
+}
+
+.announcement h2 {
+    font-size: 16px;
+    color: #ffffff;
+    text-align: center;
+    
+}
+
+.time{
+    border-radius: 10px;
+    background-color: #0075FF;
+    width: 15%;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+.time p{
+    font-size: 16px;
+    color: #ffffff;
+    text-align: center;
+    text-decoration: none;
+}
+
+.board{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    margin: 30px 0 20px 0;
+    
+}
+
+.item-board{
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #ffffff;
+    border-radius: 10px;
+    line-height: 0;
+}
+
+.item-board p{
+    font-size: 30px;
+}
+
+.item-board h3{
+    font-size: 70px;
+}
+
+.button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.button :hover{
+
+}
+
+.btn-1{
+   width: 240px;
+   height: 57px;
+   background-color: white;
+   border: none;
+   border-radius: 20px;
+   font-size: 30px;
+   font-family: "Jockey One", sans-serif;
+}
+
+.subcontainer{
+    width: 100%;
+}
+
+.subjudul{
+    display: flex;
+    justify-content: space-between;
+    margin: 0 20px;
+    font-size: 30px;
+}
+
+.subjudul p{
+    border-bottom: 3px solid #0075FF;
+}
+
+.yellow{
+    color:#FFC700;
+}
+
+.green{
+    color:#1ABD00;
+}
+
+.blue{
+    color:#008FDF;
+}
+
+.maincontent{
+    margin-bottom: 2rem;
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    gap: 10%;
+}
+
+.contentkiri{
+    height: auto;
+    background-color: white;
+    border-radius: 10px;
+    width: 40%;
+}
+
+.judulkiri{
+    display: flex;
+    font-size: 30px;
+}
+.judulkiri h3{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+.button2{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: flex-end;
+}
+.btn-2{
+    width: 55px;
+    height: 55px;
+    background-color: white;
+    border-radius: 50%;
+    margin-right: 30px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, .4);
+    border: none;
+    cursor: pointer;
+}
+
+.btn-2 i{
+    font-size: 25px;
+    transition: font-size .2s ease-in;
+}
+
+.btn-2 i:hover{
+    font-size: 30px;
+}
+.isikiri{
+   padding: 0px 10px 15px;
+}
+
+.isikiri p{
+    width: auto;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    font-size: 30px;
+    background-color: #D9D9D9;
+    padding-left: 15px;
+}
+
+
+.contentkanan{
+    display: flex;
+    flex-direction: column;
+    height: 569px;
+    width: 40%;
+    justify-content: space-between;
+}
+
+.kananatas{
+    height: 48%;
+    background-color: white;
+    border-radius: 10px;
+}
+
+.isikananatas{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #ffffff;
+    border-radius: 10px;
+    height: 100%;
+    color:#21CF04;
+    line-height: 0;
+}
+
+.isikananatas h3{
+    font-size: 60px;
+    background-color: #FF000F;
+}
+
+.isikananatas p{
+    font-size: 90px;
+    background-color: red;
+}
+
+.kananbawah{
+    height: 48%;
+    background-color: white;
+    border-radius: 10px;
+}
+
+.isikananbawah{
+    display: flex;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: #ffffff;
+    border-radius: 10px;
+    color:#FF000F;
+    line-height: 0;
+}
+
+.isikananbawah h3{
+    font-size: 60px;
+    background-color: #FF000F;
+}
+
+.isikananbawah p{
+    font-size: 90px;
+    background-color: red;
+}
