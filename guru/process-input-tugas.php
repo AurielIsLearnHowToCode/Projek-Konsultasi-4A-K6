@@ -6,8 +6,8 @@ include("../service/database.php");
 if(isset($_POST['submit'])){
 
     // ambil data dari formulir
-    $nis = $_POST['nis'];
-    $nama = $_POST['nama'];
+    $mpl = $_POST['mata-pelajaran'];
+    $desk = $_POST['deskripsi'];
 
     // buat query
     $sql = "INSERT INTO tugas (NIS, Nama, Password, ID_kelas, No_telp) VALUE ('$nis', '$nama', '$password', '$kelas', '$noTelp')";

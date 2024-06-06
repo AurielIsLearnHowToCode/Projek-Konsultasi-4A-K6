@@ -16,7 +16,7 @@ if(isset($_POST['login'])) {
 
     if($result->num_rows > 0){
         $_SESSION['loggedin'] = true; // Menyimpan status login di session
-        $_SESSION['username'] = $username; // Menyimpan username di session jika diperlukan
+        $_SESSION['username'] = $result['Nama']; // Menyimpan username di session jika diperlukan
         header("location: ../user/home.html");
         exit();
     } else {
@@ -33,7 +33,7 @@ if(isset($_POST['login'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Page</title>
+    <title>Nugas: Platform for your assignment reminder</title>
     <link rel="stylesheet" href="styles/LoginUser.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">

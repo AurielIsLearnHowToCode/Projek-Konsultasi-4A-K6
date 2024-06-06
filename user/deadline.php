@@ -1,11 +1,12 @@
 <?php
 session_start();
+include "../service/database.php";
 header("Cache-Control: no-cache, no-store, must-revalidate"); // HTTP 1.1.
 header("Pragma: no-cache"); // HTTP 1.0.
 header("Expires: 0"); // Proxies.
 
 if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
-    header('Location: log.php'); // Redirect ke halaman login jika tidak ada session login
+    header('Location: ../login-page/LoginUser.php'); // Redirect ke halaman login jika tidak ada session login
     exit;
 }
 ?>
@@ -15,13 +16,14 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard Siswa</title>
+    <title>Nugas: Dashboard Siswa</title>
     <link rel="stylesheet" href="styles/deadline.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Jockey+One&display=swap" rel="stylesheet">
-    <script src="deadline.js"></script>
+    <script src="styles/deadline.js"></script>
+    <script src="styles/clock&announcement.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
 </head>
 

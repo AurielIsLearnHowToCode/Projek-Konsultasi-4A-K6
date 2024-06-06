@@ -1,3 +1,16 @@
+<?php
+session_start();
+include "../service/database.php";
+header("Cache-Control: no-cache, no-store, must-revalidate"); // HTTP 1.1.
+header("Pragma: no-cache"); // HTTP 1.0.
+header("Expires: 0"); // Proxies.
+
+if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
+    header('Location: ../login-page/LoginUser.php'); // Redirect ke halaman login jika tidak ada session login
+    exit;
+}
+?>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -6,7 +19,8 @@
         <title>Dashboard Siswa</title>
         <link rel="stylesheet" href="styles/dashboarduser.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+        <script src="styles/clock&announcement.js"></script>
     </head>
 
     <body>
@@ -17,13 +31,13 @@
             </div>
 
             <div class="menu">
-                <a href="home.html">Dashboard</a>
+                <a href="home.php">Dashboard</a>
                 <a href="mapel.html">Mata Pelajaran</a>
                 <a href="event.html">Event</a>
             </div>
             
             <div class="username">
-                <a href="#">Syafii</a>
+                <a href="#"><?php echo $_SESSION['username'] ?></a>
             </div>
 
             <div class ="icon">
@@ -35,7 +49,7 @@
 
         <div class="announcement">
             <div class="time">
-                <p>12:00</p>
+                <a id="realtime-clock">12:00</a>
             </div>
             <h2>IMPORTANT ANNOUNCEMENT</h2>
         </div>
