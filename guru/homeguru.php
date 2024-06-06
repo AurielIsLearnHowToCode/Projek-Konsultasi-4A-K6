@@ -1,15 +1,26 @@
 <?php
+    session_start();
     include "../service/database.php";
+    header("Cache-Control: no-cache, no-store, must-revalidate"); // HTTP 1.1.
+    header("Pragma: no-cache"); // HTTP 1.0.
+    header("Expires: 0"); // Proxies.
+
+    if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
+        header('Location: ../login-page/LoginGuru.php'); // Redirect ke halaman login jika tidak ada session login
+        exit;
+    }
 ?>
+
 <!DOCTYPE html>
 <html>
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>PROKON: Dashboard Guru</title>
-        <link rel="stylesheet" href="styles/dashboardguru.css">
+        <title>Nugas: Dashboard Guru</title>
+        <link rel="stylesheet" href="styles/dashboard.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
         <script src="styles/scriptkalender.js"></script>
+        <script src="../Assets/clock&announcement.js"></script>
     </head>
 
     <body>
@@ -21,12 +32,17 @@
 
             <div class="menu">
                 <a href="homeguru.php">Dashboard</a>
-                <a href="mapel.html">Mata Pelajaran</a>
-                <a href="event.html">Event</a>
+                <a href="mapel.php">Mata Pelajaran</a>
+                <a href="event.php">Event</a>
             </div>
             
-            <div class="username">
-                <a href="#">Syafii</a>
+            <div class="username" onclick="togglePenggunaContent()">
+                <span><?php echo $_SESSION['username'] ?></span>
+                <div id="penggunaContent" class="pengguna-content">
+                </div>
+                <div class="logout-content">
+                    <a href="../login-page/logout.php">Logout</a>
+                </div>
             </div>
 
             <div class ="icon">
@@ -34,12 +50,12 @@
             </div>
         </div>
     </div>
-        <div class="announcement">
-            <div class="time">
-                <p>12:00</p>
-            </div>
-            <h2>IMPORTANT ANNOUNCEMENT</h2>
+    <div class="announcement">
+        <div class="time">
+            <a id="realtime-clock">12:00</a>
         </div>
+        <marquee><a id="announcement-text">IMPORTANT ANNOUNCEMENT</a></marquee>
+    </div>
     
 
     <div class="board">
@@ -81,7 +97,7 @@
     <div class="maincontent">
         <div class="contentkiri">
             <div class="isikiri">
-                <a class="button" href="#">Input Tugas</a>
+                <a class="button" href="input-tugas.php">Input Tugas</a>
                 <a class="button" href="#">Input Event</a>
             </div>
         </div>

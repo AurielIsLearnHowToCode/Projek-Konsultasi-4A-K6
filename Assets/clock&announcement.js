@@ -24,4 +24,4 @@ function updateAnnouncement() {
 }
 
 // Panggil fungsi updateAnnouncement() setiap beberapa detik
-setInterval(updateAnnouncement, 5000); // Ganti pengumuman setiap 5 detik
+setInterval(updateAnnouncement, 20000); // Ganti pengumuman setiap 20 detik

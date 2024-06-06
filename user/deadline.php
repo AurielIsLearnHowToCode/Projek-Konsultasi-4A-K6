@@ -23,7 +23,7 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Jockey+One&display=swap" rel="stylesheet">
     <script src="styles/deadline.js"></script>
-    <script src="styles/clock&announcement.js"></script>
+    <script src="../Assets/clock&announcement.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
 </head>
 
@@ -32,17 +32,17 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
         <div class="logo">
             <img src="../Assets/nugas.png" alt="Logo NUGAS" style="width: 150px;"> 
         </div>
-        <a href="home.html">Dashboard</a>
-        <a href="mapel.html">Mata Pelajaran</a>
-        <a href="event.html">Event</a>
+        <a href="home.php">Dashboard</a>
+        <a href="mapel.php">Mata Pelajaran</a>
+        <a href="event.php">Event</a>
     </div>
 
     <div class="announcement">
-    <div class="time">
-        <a id="realtime-clock">12:00</a>
+        <div class="time">
+            <a id="realtime-clock">12:00</a>
+        </div>
+        <marquee><a id="announcement-text">IMPORTANT ANNOUNCEMENT</a></marquee>
     </div>
-    <a id="announcement-text">IMPORTANT ANNOUNCEMENT</a>
-</div>
 
 
     <div class="today">

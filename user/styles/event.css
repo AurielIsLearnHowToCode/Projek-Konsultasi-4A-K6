@@ -43,13 +43,14 @@ body {
   overflow: hidden;
   border-radius: 10px;
   background-color: #21CF04;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-  width: 99%;
+  box-shadow: 0 2px 4px rgb(0 0 0 / 30%);
+  width: 100%;
   position: fixed;
   display: flex;
   justify-content: center;
   margin-top: 80px;
   z-index: 999;
+  height: 50px;
 }
 
 .announcement a {

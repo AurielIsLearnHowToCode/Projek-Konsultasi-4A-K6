@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 06, 2024 at 05:50 AM
+-- Generation Time: Jun 06, 2024 at 04:50 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.12
 
@@ -44,19 +44,6 @@ INSERT INTO `guru` (`NIP`, `Password`, `Nama`, `No_telp`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `kegiatan_pembelajaran`
---
-
-CREATE TABLE `kegiatan_pembelajaran` (
-  `ID` varchar(5) NOT NULL,
-  `NIP` int(7) NOT NULL,
-  `Nama` varchar(30) NOT NULL,
-  `Jadwal_kegiatan` date NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `kelas`
 --
 
@@ -82,6 +69,9 @@ INSERT INTO `kelas` (`ID`, `Nama`, `Tingkatan_kelas`, `NIP`) VALUES
 
 CREATE TABLE `kp_luar` (
   `ID_kp` varchar(5) NOT NULL,
+  `NIP` int(7) NOT NULL,
+  `Nama` varchar(30) NOT NULL,
+  `Jadwal_Kegiatan` varchar(10) NOT NULL,
   `lokasi` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -92,7 +82,10 @@ CREATE TABLE `kp_luar` (
 --
 
 CREATE TABLE `kp_mapel` (
-  `ID_kp` varchar(5) NOT NULL
+  `ID_kp` varchar(5) NOT NULL,
+  `NIP` int(7) NOT NULL,
+  `Nama` varchar(30) NOT NULL,
+  `Jadwal_Kegiatan` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -166,107 +159,7 @@ ALTER TABLE `guru`
   ADD PRIMARY KEY (`NIP`);
 
 --
--- Indexes for table `kegiatan_pembelajaran`
---
-ALTER TABLE `kegiatan_pembelajaran`
-  ADD PRIMARY KEY (`ID`),
-  ADD KEY `NIP` (`NIP`);
-
---
 -- Indexes for table `kelas`
 --
 ALTER TABLE `kelas`
   ADD PRIMARY KEY (`ID`);
-
---
--- Indexes for table `kp_luar`
---
-ALTER TABLE `kp_luar`
-  ADD KEY `ID_kp` (`ID_kp`);
-
---
--- Indexes for table `kp_mapel`
---
-ALTER TABLE `kp_mapel`
-  ADD KEY `ID_kp` (`ID_kp`);
-
---
--- Indexes for table `notifikasi`
---
-ALTER TABLE `notifikasi`
-  ADD PRIMARY KEY (`ID`),
-  ADD KEY `NIP` (`NIP`);
-
---
--- Indexes for table `rekap`
---
-ALTER TABLE `rekap`
-  ADD PRIMARY KEY (`ID`),
-  ADD KEY `ID_tugas` (`ID_tugas`);
-
---
--- Indexes for table `siswa`
---
-ALTER TABLE `siswa`
-  ADD PRIMARY KEY (`NIS`),
-  ADD KEY `ID_kelas` (`ID_kelas`);
-
---
--- Indexes for table `tugas`
---
-ALTER TABLE `tugas`
-  ADD PRIMARY KEY (`ID`),
-  ADD KEY `ID_kp` (`ID_kp`),
-  ADD KEY `NIS` (`NIS`);
-
---
--- Constraints for dumped tables
---
-
---
--- Constraints for table `kegiatan_pembelajaran`
---
-ALTER TABLE `kegiatan_pembelajaran`
-  ADD CONSTRAINT `kegiatan_pembelajaran_ibfk_1` FOREIGN KEY (`NIP`) REFERENCES `guru` (`NIP`);
-
---
--- Constraints for table `kp_luar`
---
-ALTER TABLE `kp_luar`
-  ADD CONSTRAINT `kp_luar_ibfk_1` FOREIGN KEY (`ID_kp`) REFERENCES `kegiatan_pembelajaran` (`ID`);
-
---
--- Constraints for table `kp_mapel`
---
-ALTER TABLE `kp_mapel`
-  ADD CONSTRAINT `kp_mapel_ibfk_1` FOREIGN KEY (`ID_kp`) REFERENCES `kegiatan_pembelajaran` (`ID`);
-
---
--- Constraints for table `notifikasi`
---
-ALTER TABLE `notifikasi`
-  ADD CONSTRAINT `notifikasi_ibfk_1` FOREIGN KEY (`NIP`) REFERENCES `guru` (`NIP`);
-
---
--- Constraints for table `rekap`
---
-ALTER TABLE `rekap`
-  ADD CONSTRAINT `rekap_ibfk_1` FOREIGN KEY (`ID_tugas`) REFERENCES `tugas` (`ID`);
-
---
--- Constraints for table `siswa`
---
-ALTER TABLE `siswa`
-  ADD CONSTRAINT `siswa_ibfk_1` FOREIGN KEY (`ID_kelas`) REFERENCES `kelas` (`ID`);
-
---
--- Constraints for table `tugas`
---
-ALTER TABLE `tugas`
-  ADD CONSTRAINT `tugas_ibfk_1` FOREIGN KEY (`ID_kp`) REFERENCES `kegiatan_pembelajaran` (`ID`),
-  ADD CONSTRAINT `tugas_ibfk_2` FOREIGN KEY (`NIS`) REFERENCES `siswa` (`NIS`);
-COMMIT;
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

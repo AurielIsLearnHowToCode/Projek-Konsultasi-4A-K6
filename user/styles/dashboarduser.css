@@ -58,14 +58,15 @@ body{
     background-color: white;
   }
   
-.announcement {
+  .announcement {
     border-radius: 10px;
-    gap: 30%;
+    gap: 0%;
     background-color: #21CF04;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 2px 4px rgb(0 0 0 / 30%);
     width: 100%;
     display: flex;
     margin-top: 80px;
+    color: white;
 }
 
 .announcement h2 {
@@ -84,11 +85,12 @@ body{
     display: flex;
 }
 
-.time p{
+.time a{
     font-size: 16px;
     color: #ffffff;
     text-align: center;
     text-decoration: none;
+    font-family: 'Jockey One', sans-serif;
 }
 
 .board{

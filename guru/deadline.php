@@ -1,13 +1,14 @@
 <?php
-session_start();
-header("Cache-Control: no-cache, no-store, must-revalidate"); // HTTP 1.1.
-header("Pragma: no-cache"); // HTTP 1.0.
-header("Expires: 0"); // Proxies.
+    session_start();
+    include "../service/database.php";
+    header("Cache-Control: no-cache, no-store, must-revalidate"); // HTTP 1.1.
+    header("Pragma: no-cache"); // HTTP 1.0.
+    header("Expires: 0"); // Proxies.
 
-if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
-    header('Location: ../login-page/LoginGuru.php'); // Redirect ke halaman login jika tidak ada session login
-    exit;
-}
+    if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
+        header('Location: ../login-page/LoginGuru.php'); // Redirect ke halaman login jika tidak ada session login
+        exit;
+    }
 ?>
 
 <!DOCTYPE html>
@@ -15,13 +16,14 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard Siswa</title>
+    <title>Nugas: Deadline Tugas</title>
     <link rel="stylesheet" href="styles/deadline.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Jockey+One&display=swap" rel="stylesheet">
-    <script src="deadline.js"></script>
+    <script src="styles/deadline.js"></script>
+    <script src="../Assets/clock&announcement.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
 </head>
 
@@ -31,16 +33,16 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
             <img src="../Assets/nugas.png" alt="Logo NUGAS" style="width: 150px;"> 
         </div>
         <a href="homeguru.php">Dashboard</a>
-        <a href="mapel.html">Mata Pelajaran</a>
-        <a href="event.html">Event</a>
+        <a href="mapel.php">Mata Pelajaran</a>
+        <a href="event.php">Event</a>
     </div>
 
     <div class="announcement">
-    <div class="time">
-        <a id="realtime-clock">12:00</a>
+        <div class="time">
+            <a id="realtime-clock">12:00</a>
+        </div>
+        <marquee><a id="announcement-text">IMPORTANT ANNOUNCEMENT</a></marquee>
     </div>
-    <a id="announcement-text">IMPORTANT ANNOUNCEMENT</a>
-</div>
 
 
     <div class="today">
@@ -91,11 +93,11 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
     </div>
 
     <div class="pengguna" onclick="togglePenggunaContent()">
-        <span>User</span>
+        <span><?php echo $_SESSION['username'] ?></span>
         <div id="penggunaContent" class="pengguna-content">
         </div>
         <div class="logout-content">
-            <a href="logout.php">Logout</a>
+            <a href="../login-page/logout.php">Logout</a>
         </div>
     </div>
     <div class="overlay"></div>

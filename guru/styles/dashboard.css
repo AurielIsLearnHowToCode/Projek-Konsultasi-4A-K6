@@ -128,10 +128,10 @@ body{
 }
 
 .button :hover{
-
+    background-color: #c5c5c5;
 }
 
-a.btn-1 {
+a.button, a.btn-1 {
     width: 240px;
     height: 57px;
     background-color: #dddddd;
@@ -217,7 +217,11 @@ a.btn-1 {
    align-content: center;
 }
 
-.isikiri a.button{
+.isikiri a.button :hover{
+    background-color: #c5c5c5;
+}
+
+.isikiri a.button {
     text-decoration: none;
     width: auto;
     border-radius: 20px;
@@ -225,9 +229,10 @@ a.btn-1 {
     font-size: 30px;
     background-color: white;
     padding-left: 15px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 2px 4px rgb(0 0 0 / 50%);
     justify-content: center;
     align-items: center;
+    margin-top: 25px;
 }
 
 

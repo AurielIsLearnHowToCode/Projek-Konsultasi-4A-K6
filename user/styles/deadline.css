@@ -44,17 +44,15 @@ body{
     background-color: teal;
   }
   
-.announcement {
-    overflow: hidden;
+  .announcement {
     border-radius: 10px;
+    gap: 0%;
     background-color: #21CF04;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-    width: 99%;
-    position: fixed;
+    box-shadow: 0 2px 4px rgb(0 0 0 / 30%);
+    width: 100%;
     display: flex;
-    justify-content: center;
     margin-top: 80px;
-    z-index: 999;
+    color: white;
 }
 
 .announcement a {
@@ -66,20 +64,20 @@ body{
 
 }
 
-.time{
+.time {
     overflow: hidden;
     border-radius: 10px;
     background-color: #0075FF;
     width: 15%;
-    justify-content: center;
+    height: 22px;
     align-items: center;
-
     position: fixed;
     top: 88px;
     left: 8px;
     z-index: 1000;
     display: flex;
     padding: 0px 5px;
+    justify-content: center;
 }
 
 .time a{
