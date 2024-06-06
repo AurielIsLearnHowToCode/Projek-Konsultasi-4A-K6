@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 06, 2024 at 04:50 PM
+-- Generation Time: Jun 07, 2024 at 01:13 AM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.12
 
@@ -88,6 +88,24 @@ CREATE TABLE `kp_mapel` (
   `Jadwal_Kegiatan` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `kp_mapel`
+--
+
+INSERT INTO `kp_mapel` (`ID_kp`, `NIP`, `Nama`, `Jadwal_Kegiatan`) VALUES
+('KP001', 1223, 'PAI', 'Senin'),
+('KP002', 1223, 'Bahasa Indonesia', 'Senin'),
+('KP003', 1223, 'Bahasa Inggris', 'Rabu'),
+('KP004', 1223, 'Bahasa Sunda', 'Rabu'),
+('KP005', 1223, 'Bahasa Jepang', 'Selasa'),
+('KP006', 1223, 'Matematika Wajib', 'Selasa'),
+('KP007', 1223, 'Matematika IPA', 'Kamis'),
+('KP008', 1223, 'Fisika', 'Kamis'),
+('KP009', 1223, 'Biologi', 'Jum`at'),
+('KP010', 1223, 'Kimia', 'Jum`at'),
+('KP011', 1223, 'Ekonomi', 'Selasa'),
+('KP012', 1223, 'Sejarah', 'Kamis');
+
 -- --------------------------------------------------------
 
 --
@@ -97,7 +115,8 @@ CREATE TABLE `kp_mapel` (
 CREATE TABLE `notifikasi` (
   `ID` varchar(5) NOT NULL,
   `NIP` int(7) NOT NULL,
-  `Pesan_Pemberitahuan` varchar(255) NOT NULL
+  `Pesan_Pemberitahuan` varchar(255) NOT NULL,
+  `created_at` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -143,10 +162,18 @@ INSERT INTO `siswa` (`NIS`, `ID_kelas`, `Password`, `Nama`, `No_telp`) VALUES
 CREATE TABLE `tugas` (
   `ID` varchar(5) NOT NULL,
   `ID_kp` varchar(5) NOT NULL,
-  `NIS` int(7) NOT NULL,
+  `Nama` varchar(30) NOT NULL,
   `Tanggal_dibuat` date NOT NULL,
   `Deadline` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tugas`
+--
+
+INSERT INTO `tugas` (`ID`, `ID_kp`, `Nama`, `Tanggal_dibuat`, `Deadline`) VALUES
+('61432', 'KP002', 'test', '2024-06-07', '2024-06-14'),
+('31406', 'KP005', 'Testo', '2024-06-07', '2024-06-14');
 
 --
 -- Indexes for dumped tables
@@ -163,3 +190,20 @@ ALTER TABLE `guru`
 --
 ALTER TABLE `kelas`
   ADD PRIMARY KEY (`ID`);
+
+--
+-- Indexes for table `kp_luar`
+--
+ALTER TABLE `kp_luar`
+  ADD PRIMARY KEY (`ID_kp`);
+
+--
+-- Indexes for table `kp_mapel`
+--
+ALTER TABLE `kp_mapel`
+  ADD PRIMARY KEY (`ID_kp`);
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
