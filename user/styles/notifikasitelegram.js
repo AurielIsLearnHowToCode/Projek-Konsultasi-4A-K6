@@ -10,7 +10,7 @@ document.getElementById('eventButton').addEventListener('click', function(event)
 
 function sendTelegramNotification(message) {
     var token = '7486440516:AAHejRwGMJFmte5rUCBXKd_ImNEM5RbCBaQ'; // Ganti dengan token bot kamu
-    var chat_id = '639482620'; // Ganti dengan chat ID kamu
+    var chat_id = '-1002234077488'; // Ganti dengan chat ID kamu
 
     var url = `https://api.telegram.org/bot${token}/sendMessage?chat_id=${chat_id}&text=${encodeURIComponent(message)}`;
 
