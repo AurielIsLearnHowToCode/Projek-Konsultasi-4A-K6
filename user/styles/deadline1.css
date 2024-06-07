@@ -1,6 +1,7 @@
 body {
-    background-color: #f1f1f1;
+    background-color: #cfcfcf;
     font-family: 'Jockey One', sans-serif;
+    padding: 0px;
 }
 
 .logo img {
@@ -59,6 +60,7 @@ body {
     text-align: center;
     padding: 14px 16px;
     font-family: 'Jockey One', sans-serif;
+    display: block;
 }
 
 .time {
@@ -84,10 +86,11 @@ body {
     font-family: 'Jockey One', sans-serif;
 }
 
-.main-container {
+div.main-container {
     display: flex;
     justify-content: space-around;
     padding-top: 150px;
+    height: 510px;
 }
 
 .task-container {
@@ -103,6 +106,27 @@ body {
     font-size: 24px;
     text-align: center;
     display: block;
+    margin-bottom: 10px;
+}
+
+.matematika:hover {
+    height: 100px;
+    display: grid;
+    transition: height 1s;
+}
+
+span {
+    margin-bottom: 10px;
+}
+
+.matematika {
+    background-color: #D9D9D9;
+    border-radius: 10px;
+    padding: 10px 10px 10px 20px;
+    display: grid;
+    height: 24px;
+    overflow-y: hidden;
+    transition: height 1s;
     margin-bottom: 10px;
 }
 

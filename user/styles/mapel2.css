@@ -60,7 +60,7 @@ body{
   
 .announcement {
     border-radius: 10px;
-    gap: 30%;
+    gap: 0%;
     background-color: #21CF04;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
     width: 100%;

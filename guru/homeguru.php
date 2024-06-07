@@ -98,7 +98,7 @@
         <div class="contentkiri">
             <div class="isikiri">
                 <a class="button" href="input-tugas.php">Input Tugas</a>
-                <a class="button" href="#">Input Event</a>
+                <a class="button" href="input-event.php">Input Event</a>
             </div>
         </div>
         <div class="gap"></div>

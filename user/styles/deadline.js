@@ -1,90 +1,82 @@
-function toggleMatematikaContent() {
-    var matematikaContent = document.querySelector('.matematika-content');
+document.addEventListener('DOMContentLoaded', function() {
+    fetchTasks();
+    startClock();
+    startAnnouncementCycle();
+});
 
+const messages = [
+    "Pesan Penting 1",
+    "Pesan Penting 2",
+    "Pesan Penting 3",
+    "Pesan Penting 4",
+    "Pesan Penting 5"
+];
 
-    var isDisplayed = window.getComputedStyle(matematikaContent).getPropertyValue('display') !== 'none';
+function fetchTasks() {
+    fetch('backend_deadline.php')
+        .then(response => response.json())
+        .then(data => {
+            const tasksToday = document.getElementById('tasks-today');
+            const tasksWeek = document.getElementById('tasks-week');
+            const tasksMonth = document.getElementById('tasks-month');
 
-    if (!isDisplayed) {
+            tasksToday.innerHTML = '';
+            tasksWeek.innerHTML = '';
+            tasksMonth.innerHTML = '';
 
-        gsap.set(matematikaContent, { display: "block", opacity: 0, height: 0 });
-        gsap.to(matematikaContent, { height: "auto", opacity: 1, duration: 0.7 });
-    } else {
+            data.tasks.forEach(task => {
+                const taskDiv = document.createElement('div');
+                taskDiv.className = 'tugas';
+                taskDiv.setAttribute('data-title', task.subject);
 
-        gsap.to(matematikaContent, { height: 0, opacity: 0, duration: 0.7, onComplete: () => {
-            gsap.set(matematikaContent, { display: "none" });
-        } });
-    }
-}
-function toggleMatematikaContent2() {
-    var matematikaContent2 = document.querySelector('.matematika2-content');
+                const subjectSpan = document.createElement('span');
+                subjectSpan.textContent = task.subject;
+                taskDiv.appendChild(subjectSpan);
 
+                const contentDiv = document.createElement('div');
+                contentDiv.className = 'tugas-content';
 
-    var isDisplayed = window.getComputedStyle(matematikaContent2).getPropertyValue('display') !== 'none';
+                const contentSpan = document.createElement('span');
+                contentSpan.textContent = task.content;
+                contentDiv.appendChild(contentSpan);
 
-    if (!isDisplayed) {
-        gsap.set(matematikaContent2, { display: "block", opacity: 0, height: 0 });
-        gsap.to(matematikaContent2, { height: "auto", opacity: 1, duration: 0.7 });
-    } else {
+                const dueDateSpan = document.createElement('span');
+                const dueDate = new Date(task.due_date);
+                const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+                const indonesianDate = new Intl.DateTimeFormat('id-ID', options).format(dueDate);
+                dueDateSpan.textContent = `Batas Waktu: ${indonesianDate}`;
+                contentDiv.appendChild(dueDateSpan);
 
-        gsap.to(matematikaContent2, { height: 0, opacity: 0, duration: 0.7, onComplete: () => {
-            gsap.set(matematikaContent2, { display: "none" });
-        } });
-    }
-}
+                taskDiv.appendChild(contentDiv);
 
-function toggleMatematikaContent3() {
-    var matematikaContent3 = document.querySelector('.matematika3-content');
+                taskDiv.addEventListener('click', () => {
+                    taskDiv.classList.toggle('expanded');
+                    if (taskDiv.classList.contains('expanded')) {
+                        gsap.set(contentDiv, { display: "block", height: 0, opacity: 0 });
+                        gsap.to(contentDiv, { height: "auto", opacity: 1, duration: 0.3 });
+                    } else {
+                        gsap.to(contentDiv, { height: 0, opacity: 0, duration: 0.3, onComplete: () => {
+                            gsap.set(contentDiv, { display: "none" });
+                        }});
+                    }
+                });
 
+                const today = new Date();
+                const endOfToday = new Date(today.getFullYear(), today.getMonth(), today.getDate(), 23, 59, 59);
+                const endOfWeek = new Date(today);
+                endOfWeek.setDate(today.getDate() + (7 - today.getDay()));
+                const endOfMonth = new Date(today.getFullYear(), today.getMonth() + 1, 0);
 
-    var isDisplayed = window.getComputedStyle(matematikaContent3).getPropertyValue('display') !== 'none';
-
-    if (!isDisplayed) {
-
-        gsap.set(matematikaContent3, { display: "block", opacity: 0, height: 0 });
-        gsap.to(matematikaContent3, { height: "auto", opacity: 1, duration: 0.7 });
-    } else {
-
-        gsap.to(matematikaContent3, { height: 0, opacity: 0, duration: 0.7, onComplete: () => {
-            gsap.set(matematikaContent3, { display: "none" });
-        } });
-    }
-}
-
-function togglebindoContent() {
-    var bindoContent = document.querySelector('.bindo-content');
-
-
-    var isDisplayed = window.getComputedStyle(bindoContent).getPropertyValue('display') !== 'none';
-
-    if (!isDisplayed) {
-
-        gsap.set(bindoContent, { display: "block", opacity: 0, height: 0 });
-        gsap.to(bindoContent, { height: "auto", opacity: 1, duration: 0.7 });
-    } else {
-
-        gsap.to(bindoContent, { height: 0, opacity: 0, duration: 0.7, onComplete: () => {
-            gsap.set(bindoContent, { display: "none" });
-        } });
-    }
-}
-
-function togglebindo2Content() {
-    var bindo2Content = document.querySelector('.bindo2-content');
-
-
-    var isDisplayed = window.getComputedStyle(bindo2Content).getPropertyValue('display') !== 'none';
-
-    if (!isDisplayed) {
-
-        gsap.set(bindo2Content, { display: "block", opacity: 0, height: 0 });
-        gsap.to(bindo2Content, { height: "auto", opacity: 1, duration: 0.7 });
-    } else {
-
-        gsap.to(bindo2Content, { height: 0, opacity: 0, duration: 0.7, onComplete: () => {
-            gsap.set(bindo2Content, { display: "none" });
-        } });
-    }
-
+                if (dueDate <= endOfToday) {
+                    tasksToday.appendChild(taskDiv);
+                } else if (dueDate <= endOfWeek) {
+                    tasksWeek.appendChild(taskDiv);
+                } else if (dueDate <= endOfMonth) {
+                    tasksMonth.appendChild(taskDiv);
+                }
+            });
+        })
+        .catch(error => console.error('Error fetching tasks:', error));
 }
 
 function togglePenggunaContent() {
@@ -96,19 +88,20 @@ function togglePenggunaContent() {
 
     if (!isDisplayed) {
         gsap.set(penggunaContent, { display: "block", opacity: 0, height: 0 });
-        gsap.to(penggunaContent, { height: "auto", opacity: 1, duration: 0, onComplete: () => {
-            // Tampilkan logout-content hanya setelah pengguna-content sepenuhnya terbuka
+        gsap.to(penggunaContent, { height: "auto", opacity: 1, duration: 0.3, onComplete: () => {
             gsap.set(logoutContent, { display: "block", opacity: 0, height: 0 });
-            gsap.to(logoutContent, { height: "auto", opacity: 1, duration: 0 });
+            gsap.to(logoutContent, { height: "auto", opacity: 1, duration: 0.3 });
         }});
         overlay.style.display = "block";
+        overlay.style.pointerEvents = "auto";
     } else {
-        gsap.to(logoutContent, { height: 0, opacity: 0, duration: 0, onComplete: () => {
+        gsap.to(logoutContent, { height: 0, opacity: 0, duration: 0.3, onComplete: () => {
             gsap.set(logoutContent, { display: "none" });
         }});
-        gsap.to(penggunaContent, { height: 0, opacity: 0, duration: 0, onComplete: () => {
+        gsap.to(penggunaContent, { height: 0, opacity: 0, duration: 0.3, onComplete: () => {
             gsap.set(penggunaContent, { display: "none" });
             overlay.style.display = "none";
+            overlay.style.pointerEvents = "none";
         }});
     }
 }

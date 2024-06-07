@@ -14,10 +14,12 @@ if(isset($_POST['login'])) {
     $stmt->execute();
     $result = $stmt->get_result();
 
+    $user = mysqli_fetch_assoc($result);
+
     if($result->num_rows > 0){
         $_SESSION['loggedin'] = true; // Menyimpan status login di session
-        $_SESSION['username'] = $result['Nama']; // Menyimpan username di session jika diperlukan
-        header("location: ../user/home.html");
+        $_SESSION['username'] = $user['Nama']; // Menyimpan username di session jika diperlukan
+        header("location: ../user/home.php");
         exit();
     } else {
         $loginfailed = "Akun tidak ditemukan";
