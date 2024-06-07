@@ -22,6 +22,8 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Jockey+One&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+    <script src="../Assets/clock.js"></script>
+    <script src="../Assets/user-btn.js"></script>
 </head>
 <body>
     <div class="navbar">
@@ -33,11 +35,27 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
         <a href="event.php">Event</a>
     </div>
 
+    <div class="pengguna" onclick="togglePenggunaContent()">
+        <span><?php echo $_SESSION['username'] ?></span>
+        <div class="pengguna-content"></div>
+        <div class="logout-content">
+            <a href="logout.php">Logout</a>
+        </div>
+    </div>
+
     <div class="announcement">
         <div class="time">
             <a id="realtime-clock">12:00</a>
         </div>
-        <marquee><a id="announcement-text">Important</a></marquee>
+        <marquee><a id="announcement-text">
+            <?php
+                $sql = "SELECT * FROM notifikasi WHERE Jenis = 'announcement'";
+                $query = mysqli_query($db, $sql);
+                while($result = mysqli_fetch_assoc($query)){
+                    echo "------|  (".$result['created_at'].") ".$result['Pesan_Pemberitahuan']."  |------";
+                }
+            ?>
+        </a></marquee>
     </div>
 
     <div class="main-container">
@@ -96,15 +114,7 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
         </div>
     </div>
 
-    <div class="pengguna" onclick="togglePenggunaContent()">
-    <span>Siswa</span>
-    <div class="pengguna-content"></div>
-    <div class="logout-content">
-        <a href="logout.php">Logout</a>
-    </div>
-</div>
-<div class="overlay" onclick="togglePenggunaContent()"></div>
-
+    <div class="overlay" onclick="togglePenggunaContent()"></div>
     <script src="styles/deadline.js"></script>
     <script src="../Assets/clock&announcement.js"></script>
 </body>

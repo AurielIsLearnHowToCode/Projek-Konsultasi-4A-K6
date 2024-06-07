@@ -12,7 +12,7 @@ if(isset($_POST['submit'])){
 
     if(!($mpl == "select")){
         // buat query
-        $sql = "INSERT INTO tugas (ID, ID_kp, Nama, Tanggal_dibuat, Deadline) VALUE ('$id', '$mpl', '$desk', DATE(NOW()), DATE_ADD(DATE(NOW()), INTERVAL 7 DAY))";
+        $sql = "INSERT INTO tugas (ID, ID_kp, Nama, Tanggal_dibuat, Deadline) VALUES ('$id', '$mpl', '$desk', DATE(NOW()), DATE_ADD(DATE(NOW()), INTERVAL 7 DAY))";
         $query = mysqli_query($db, $sql);
 
         // apakah query simpan berhasil?

@@ -1,34 +1,46 @@
 <?php
+    session_start();
+    include("../service/database.php");
 
-include("../service/database.php");
+    // cek apakah tombol daftar sudah diklik atau blum?
+    if(isset($_POST['announcement']) || isset($_POST['input_event'])){
 
-// cek apakah tombol daftar sudah diklik atau blum?
-if(isset($_POST['submit'])){
-
-    // ambil data dari formulir
-    $mpl = $_POST['mata-pelajaran'];
-    $desk = $_POST['deskripsi'];
-    $id = uniqid(mt_rand(), true);
-
-    if(!($mpl == "select")){
-        // buat query
-        $sql = "INSERT INTO tugas (ID, ID_kp, Nama, Tanggal_dibuat, Deadline) VALUE ('$id', '$mpl', '$desk', DATE(NOW()), DATE_ADD(DATE(NOW()), INTERVAL 7 DAY))";
-        $query = mysqli_query($db, $sql);
-
-        // apakah query simpan berhasil?
-        if( $query ) {
-            // kalau berhasil alihkan ke halaman index.php dengan status=sukses
-            header('Location: homeguru.php?status=sukses');
-        } else {
-            // kalau gagal alihkan ke halaman indek.php dengan status=gagal
-            header('Location: input-tugas.php?status=gagal');
+        // ambil data dari formulir
+        $desk = $_POST['deskripsi'];
+        $jenis = "";
+        $nip = $_SESSION['nip'];
+        
+        if(isset($_POST['announcement'])){
+            $jenis = "announcement";
+        }elseif(isset($_POST['input_event'])){
+            $jenis = "event";
         }
-    }else{
-        die("Tidak bisa, harus milih mata pelajaran apa yang harus dijadikan tugas");
+
+        if(!(empty($desk))){
+            // buat query
+            $sql = "INSERT INTO notifikasi (ID, NIP, Pesan_Pemberitahuan, Jenis, created_at) VALUES ('', '$nip', '$desk', '$jenis', DATE(NOW()))";
+            $query = mysqli_query($db, $sql);
+
+            // apakah query simpan berhasil?
+            if( $query ) {
+                // kalau berhasil alihkan ke halaman index.php dengan status=sukses
+                if(isset($_POST['announcement'])){
+                    header('Location: homeguru.php?status=sukses');
+                }elseif(isset($_POST['input_event'])){
+                    header('Location: event.php?status=sukses');
+                }
+                
+            } else {
+                // kalau gagal alihkan ke halaman indek.php dengan status=gagal
+                header('Location: input-event.php?status=gagal');
+            }
+        }else{
+            echo "INSERT INTO notifikasi (ID, NIP, Pesan_Pemberitahuan, Jenis, created_at) VALUES ('', '".$_SESSION['nip']."', '".$desk."', '".$jenis."', DATE(NOW())";
+            die("Error: berikan input dengan benar");
+        }
+
+
+    } else {
+        die("Akses dilarang...");
     }
-
-
-} else {
-    die("Akses dilarang...");
-}
 ?>

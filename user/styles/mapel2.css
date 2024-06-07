@@ -76,6 +76,36 @@ body{
     
 }
 
+.pengguna {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    font-size: 16px;
+    color: #422828;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 25px;
+    padding: 10px 30px;
+    background-color: white;
+    margin: 15px;
+    transition: background-color 0.3s ease;
+    z-index: 21000;
+    cursor: pointer;
+}
+
+.pengguna-content {
+    margin-top: 20px;
+    background-color: white;
+    display: none;
+}
+
+.logout-content {
+    padding: 10px 20px;
+    text-align: center;
+    background-color: #f1f1f1;
+    display: none;
+}
+
 .time{
     border-radius: 10px;
     background-color: #0075FF;

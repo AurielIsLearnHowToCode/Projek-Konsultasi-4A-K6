@@ -14,9 +14,12 @@ if(isset($_POST['login'])) {
     $stmt->execute();
     $result = $stmt->get_result();
 
+    $hasil = mysqli_fetch_assoc($result);
+
     if($result->num_rows > 0){
         $_SESSION['loggedin'] = true; // Menyimpan status login di session
-        $_SESSION['username'] = $username; // Menyimpan username di session jika diperlukan
+        $_SESSION['username'] = $hasil['Nama']; // Menyimpan username di session jika diperlukan
+        $_SESSION['nip'] = $username;
         header("location: ../guru/homeguru.php");
         exit();
     } else {

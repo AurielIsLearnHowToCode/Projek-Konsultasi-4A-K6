@@ -23,7 +23,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Jockey+One&display=swap" rel="stylesheet">
     <script src="styles/deadline.js"></script>
-    <script src="../Assets/clock&announcement.js"></script>
+    <script src="../Assets/user-btn.js"></script>
+    <script src="../Assets/clock.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
 </head>
 
@@ -41,7 +42,15 @@
         <div class="time">
             <a id="realtime-clock">12:00</a>
         </div>
-        <marquee><a id="announcement-text">IMPORTANT ANNOUNCEMENT</a></marquee>
+        <marquee><a id="announcement-text">
+            <?php
+                $sql = "SELECT * FROM notifikasi WHERE Jenis = 'announcement'";
+                $query = mysqli_query($db, $sql);
+                while($result = mysqli_fetch_assoc($query)){
+                    echo "------|  (".$result['created_at'].") ".$result['Pesan_Pemberitahuan']."  |------";
+                }
+            ?>
+        </a></marquee>
     </div>
 
 

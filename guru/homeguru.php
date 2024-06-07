@@ -20,7 +20,8 @@
         <link rel="stylesheet" href="styles/dashboard.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
         <script src="styles/scriptkalender.js"></script>
-        <script src="../Assets/clock&announcement.js"></script>
+        <script src="../Assets/clock.js"></script>
+        <script src="../Assets/user-btn.js"></script>
     </head>
 
     <body>
@@ -54,7 +55,15 @@
         <div class="time">
             <a id="realtime-clock">12:00</a>
         </div>
-        <marquee><a id="announcement-text">IMPORTANT ANNOUNCEMENT</a></marquee>
+        <marquee><a id="announcement-text">
+            <?php
+                $sql = "SELECT * FROM notifikasi WHERE Jenis = 'announcement'";
+                $query = mysqli_query($db, $sql);
+                while($result = mysqli_fetch_assoc($query)){
+                    echo "------|  (".$result['created_at'].") ".$result['Pesan_Pemberitahuan']."  |------";
+                }
+            ?>
+        </a></marquee>
     </div>
     
 

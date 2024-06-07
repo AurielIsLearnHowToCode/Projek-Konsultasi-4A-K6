@@ -33,7 +33,7 @@
         <a href="event.php">Event</a>
     </div>
     <form action="process-input-event.php" class="form-container" method="post">
-        <textarea id="deskripsi" name="deskripsi" placeholder="Deskripsi event..."></textarea>
+        <textarea id="deskripsi" name="deskripsi" placeholder="Deskripsi event..." require></textarea>
         <div class="button-container">
             <button type="submit" name="announcement" class="button-announcement">Announcement</button>
             <button type="submit" name="input_event" class="button-input-event">Input As Event</button>

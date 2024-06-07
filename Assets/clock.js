@@ -14,14 +14,3 @@ function updateClock() {
 document.addEventListener('DOMContentLoaded', function() {
     updateClock();
 });
-
-const announcements = ['Harusnya Running Text', 'New updates available!', 'Reminder: Meeting at 2 PM'];
-let index = 0;
-
-function updateAnnouncement() {
-    document.getElementById('announcement-text').textContent = announcements[index];
-    index = (index + 1) % announcements.length;
-}
-
-// Panggil fungsi updateAnnouncement() setiap beberapa detik
-setInterval(updateAnnouncement, 20000); // Ganti pengumuman setiap 20 detik
