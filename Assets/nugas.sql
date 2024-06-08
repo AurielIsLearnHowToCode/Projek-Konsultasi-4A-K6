@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 07, 2024 at 01:13 AM
+-- Generation Time: Jun 08, 2024 at 02:05 AM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.12
 
@@ -113,11 +113,21 @@ INSERT INTO `kp_mapel` (`ID_kp`, `NIP`, `Nama`, `Jadwal_Kegiatan`) VALUES
 --
 
 CREATE TABLE `notifikasi` (
-  `ID` varchar(5) NOT NULL,
+  `ID` int(5) NOT NULL,
   `NIP` int(7) NOT NULL,
   `Pesan_Pemberitahuan` varchar(255) NOT NULL,
+  `Jenis` varchar(15) NOT NULL,
   `created_at` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `notifikasi`
+--
+
+INSERT INTO `notifikasi` (`ID`, `NIP`, `Pesan_Pemberitahuan`, `Jenis`, `created_at`) VALUES
+(6, 1223, 'Presentasi Projek Konsultasi di undur untuk urutan dari 9 keatas\r\n', 'event', '2024-06-07'),
+(7, 1223, 'PROKONTIL!!!!!', 'announcement', '2024-06-07'),
+(8, 1223, 'PBO presentasi nanti senin tanggal 10 juni 2024', 'announcement', '2024-06-07');
 
 -- --------------------------------------------------------
 
@@ -202,6 +212,22 @@ ALTER TABLE `kp_luar`
 --
 ALTER TABLE `kp_mapel`
   ADD PRIMARY KEY (`ID_kp`);
+
+--
+-- Indexes for table `notifikasi`
+--
+ALTER TABLE `notifikasi`
+  ADD PRIMARY KEY (`ID`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `notifikasi`
+--
+ALTER TABLE `notifikasi`
+  MODIFY `ID` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
