@@ -94,7 +94,7 @@ div.main-container {
 }
 
 .task-container {
-    overflow: hidden;
+    overflow-y: scroll;
     border-radius: 10px;
     background-color: #ffffff;
     width: 30%;

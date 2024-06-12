@@ -96,5 +96,7 @@
         }
     ?>
 
+    <div class="overlay" onclick="togglePenggunaContent()"></div>
+
     </body>
 </html>

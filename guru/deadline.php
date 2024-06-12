@@ -17,7 +17,7 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard Siswa</title>
-    <link rel="stylesheet" href="../user/styles/deadline1.css">
+    <link rel="stylesheet" href="../guru/styles/deadline2.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Jockey+One&display=swap" rel="stylesheet">
@@ -30,7 +30,7 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
         <div class="logo">
             <img src="../Assets/nugas.png" alt="Logo NUGAS" style="width: 150px;">
         </div>
-        <a href="home.php">Dashboard</a>
+        <a href="homeguru.php">Dashboard</a>
         <a href="mapel.php">Mata Pelajaran</a>
         <a href="event.php">Event</a>
     </div>

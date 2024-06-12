@@ -17,6 +17,6 @@ if (ini_get("session.use_cookies")) {
 session_destroy();
 
 // Redirect ke halaman login atau halaman utama setelah logout
-header("Location: ../LoginSiswa/index.php"); // Sesuaikan dengan path file login Anda
+header("Location: ../login-page/LoginUser.php"); // Sesuaikan dengan path file login Anda
 exit();
 ?>

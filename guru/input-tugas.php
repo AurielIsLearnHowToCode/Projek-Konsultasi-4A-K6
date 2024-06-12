@@ -17,7 +17,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nugas: Input Tugas</title>
-    <link rel="stylesheet" href="styles/input-tugas.css">
+    <link rel="stylesheet" href="styles/input-tugas1.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Jockey+One&display=swap" rel="stylesheet">
@@ -31,7 +31,7 @@
         <a href="mapel.php">Mata Pelajaran</a>
         <a href="event.php">Event</a>
     </div>
-    <form action="process-input-tugas.php" class="form-container" method="post">
+    <form action="process-input-tugas.php" class="form-container1" method="post">
         <label for="matapelajaran"></label>
         <select name="mata-pelajaran" id="matpel">
             <option value="select">Pilih Mata Pelajaran</option>
@@ -39,12 +39,12 @@
                 $sql = "SELECT * FROM kp_mapel GROUP BY Nama ORDER BY Nama ASC";
                 $query = mysqli_query($db, $sql);
                 while($result = mysqli_fetch_array($query)){
-                    echo "<option value='".$result['ID_kp']."'>".$result['Nama']."</option>";
+                    echo "<option value='".$result['ID_kp']."' data-nama='".$result['Nama']."' >".$result['Nama']."</option>";
                 }
             ?>
         </select>
         <br>
-        <textarea id="deskripsi" name="deskripsi" placeholder="Deskripsi tugas..."></textarea>
+        <textarea id="deskripsiTugas" name="deskripsi" placeholder="Deskripsi tugas..."></textarea>
     
         
         <div class="center">
@@ -56,7 +56,7 @@
                 </div>
                 <div class="buttons">
                     <div class="buttons-item">
-                    <button type="submit" name="submit" class="yes-btn">Ya</button>
+                    <button id = "tugasButton" type="submit" name="submit" class="yes-btn">Ya</button>
                     <label for="click" class="no-btn">Tidak</label>
                     </div>
                 </div>
@@ -64,7 +64,7 @@
         </div>
     </form>
 
-    
+    <script src="../Assets/notifikasitelegram.js"></script>
 
 </body>
 </html>

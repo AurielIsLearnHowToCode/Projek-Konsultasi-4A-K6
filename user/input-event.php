@@ -28,7 +28,7 @@
         <div class="logo">
             <img src="../Assets/nugas.png" alt="Logo NUGAS" style="width: 150px;">
         </div>
-        <a href="homeguru.php">Dashboard</a>
+        <a href="home.php">Dashboard</a>
         <a href="mapel.php">Mata Pelajaran</a>
         <a href="event.php">Event</a>
     </div>

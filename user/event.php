@@ -17,11 +17,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nugas: Dashboard Siswa</title>
-    <link rel="stylesheet" href="styles/event.css">
+    <link rel="stylesheet" href="styles/event1.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Jockey+One&display=swap" rel="stylesheet">
     <script src="../Assets/clock.js"></script>
+    <script src="../Assets/user-btn.js"></script>
 </head>
 <body>
     <div class="navbar">
@@ -50,7 +51,7 @@
 
     <div class="content-box">
         <?php
-            $sql = "SELECT * FROM notifikasi";
+            $sql = "SELECT * FROM notifikasi WHERE Jenis = 'event'";
             $query = mysqli_query($db, $sql);
             while($result = mysqli_fetch_array($query)){
                 echo "<div class='box'>";
@@ -65,5 +66,7 @@
         </div>
         <div class="white-box"></div>
     </div>
+
+    <div class="overlay" onclick="togglePenggunaContent()"></div>
 </body>
 </html>

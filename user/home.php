@@ -37,6 +37,8 @@
                 <a href="event.php">Event</a>
             </div>
             
+            <div class="overlay" onclick="togglePenggunaContent()"></div>
+
             <div class="pengguna" onclick="togglePenggunaContent()">
                 <span><?php echo $_SESSION['username'] ?></span>
                 <div class="pengguna-content"></div>
@@ -110,22 +112,41 @@
         </div>
     </div>
     
+    <?php
+        $hari = ["Minggu", "Senin", "Selasa", "Rabu", "Kamis", "Jum'at", "Sabtu"];
+        $day = "SELECT (WEEKDAY(NOW()) + 1) AS 'hasil'";
+        $query = mysqli_query($db, $day);
+        $result = mysqli_fetch_assoc($query);
+        $indexHari = $result["hasil"];
+
+        if ($indexHari == 6 || $indexHari == 0) {
+            $indexHari = 1;
+        }
+
+        $sql = "SELECT Jadwal_Kegiatan FROM KP_mapel WHERE Jadwal_Kegiatan = '".$hari[$indexHari]."'";
+        $query1 = mysqli_query($db, $sql);
+        $result0 = mysqli_fetch_assoc($query1);
+    ?>
+
     <div class="maincontent">
         <div class="contentkiri">
             <div class="judulkiri">
-                <h3>Senin</h3>
+                <h3><?php echo $result0['Jadwal_Kegiatan'] ?></h3>
                 <div class="button2">
                     <button class="btn-2">
-                        <i class="fa-solid fa-arrow-right"></i>
+                        <a href="mapel.php"><i class="fa-solid fa-arrow-right"></i></a>
                     </button>
                     </div>
             </div>
             <div class="isikiri">
-                <p>Fisika</p>
-                <p>Bahasa Indonesia</p>
-                <p>Matematika</p>
-                <p>Sejarah</p>
-                <p>Bahasa Jepang</p>
+
+            <?php
+                $sql = "SELECT Nama FROM KP_mapel WHERE Jadwal_Kegiatan = '".$hari[$indexHari]."'";
+                $query2 = mysqli_query($db, $sql);
+                while($result00 = mysqli_fetch_assoc($query2)){
+                    echo "<p>".$result00['Nama']."</p>";
+                }
+            ?>
             </div>
         </div>
         <?php 
@@ -161,5 +182,7 @@
             </div>
         </div>
     </div>
+
+    
 </body>
 </html>

@@ -17,11 +17,10 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Nugas: Dashboard Guru</title>
-        <link rel="stylesheet" href="styles/dashboard.css">
+        <link rel="stylesheet" href="styles/dashboard1.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
         <script src="styles/scriptkalender.js"></script>
         <script src="../Assets/clock.js"></script>
-        <script src="../Assets/user-btn.js"></script>
     </head>
 
     <body>
@@ -32,17 +31,18 @@
             </div>
 
             <div class="menu">
-                <a href="homeguru.php">Dashboard</a>
+                <a href="home.php">Dashboard</a>
                 <a href="mapel.php">Mata Pelajaran</a>
                 <a href="event.php">Event</a>
             </div>
             
-            <div class="username" onclick="togglePenggunaContent()">
+            <div class="overlay" onclick="togglePenggunaContent()"></div>
+
+            <div class="pengguna" onclick="togglePenggunaContent()">
                 <span><?php echo $_SESSION['username'] ?></span>
-                <div id="penggunaContent" class="pengguna-content">
-                </div>
+                <div class="pengguna-content"></div>
                 <div class="logout-content">
-                    <a href="../login-page/logout.php">Logout</a>
+                    <a href="logout.php">Logout</a>
                 </div>
             </div>
 
@@ -137,5 +137,7 @@
     </div>
         </body>
 
+        
+        <script src="../Assets/user-btn.js"></script>
 
 </html>
