@@ -17,7 +17,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nugas: Dashboard Guru</title>
-    <link rel="stylesheet" href="styles/event1.css">
+    <link rel="stylesheet" href="styles/eventguru.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Jockey+One&display=swap" rel="stylesheet">
@@ -30,7 +30,7 @@
         </div>
         <a href="homeguru.php">Dashboard</a>
         <a href="mapel.php">Mata Pelajaran</a>
-        <a href="event.php">Event</a>
+        <a href="eventguru. php">Event</a>
     </div>
 
     <div class="announcement">
@@ -51,21 +51,20 @@
     <div class="content-box">
     <div class="white-box">
             <?php
-                $sql = "SELECT * FROM notifikasi WHERE Jenis = 'event'  ";
+                $sql = "SELECT * FROM notifikasi ORDER BY Jenis DESC ";
                 $query = mysqli_query($db, $sql);
                 while($result = mysqli_fetch_array($query)){
                     echo "<div class='box'>";
                     echo "<p>".$result['Pesan_Pemberitahuan']."</p>";
-                    echo "<p style='color: black;'>".$result['created_at']."</p>";
+                    echo "<p style='color: black;'>(".$result['Jenis'].")&emsp13;&emsp13;".$result['created_at']."&emsp13;&emsp13;<a href='update-event.php?id=".$result['ID']."'><span class='raphael--edit'></span></a>&emsp13;&emsp13;<a href='process-delete-event.php?id=".$result['ID']."'><span class='mdi--trash-outline'></span></a></p>";
                     echo "</div>";
                 }
             ?>
-        </div>
+    </div>
         <div class="event-label">
-            <span>Event</span>
+            <span>Event & Announcement</span>
             <div class="line"></div>
         </div>
-        
     </div>
 </body>
 </html>

@@ -17,7 +17,7 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard Siswa</title>
-    <link rel="stylesheet" href="../guru/styles/deadline2.css">
+    <link rel="stylesheet" href="../guru/styles/deadline22.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Jockey+One&display=swap" rel="stylesheet">
@@ -32,7 +32,7 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
         </div>
         <a href="homeguru.php">Dashboard</a>
         <a href="mapel.php">Mata Pelajaran</a>
-        <a href="event.php">Event</a>
+        <a href="eventguru.php">Event</a>
     </div>
 
     <div class="pengguna" onclick="togglePenggunaContent()">
@@ -63,13 +63,13 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
             <a>Due Today</a>
             <div id="tasks-today">
                 <?php
-                    $sql = "SELECT kpm.Nama as 'mapel', t.Nama as 'deskripsi' FROM tugas as t join kp_mapel as kpm on t.ID_kp = kpm.ID_kp WHERE deadline BETWEEN DATE(NOW()) AND DATE_ADD(DATE(NOW()), INTERVAL 1 DAY);";
+                    $sql = "SELECT t.ID as 'id', kpm.Nama as 'mapel', t.Nama as 'deskripsi' FROM tugas as t join kp_mapel as kpm on t.ID_kp = kpm.ID_kp WHERE deadline BETWEEN DATE(NOW()) AND DATE_ADD(DATE(NOW()), INTERVAL 1 DAY);";
                     $query = mysqli_query($db, $sql);
                     while($result = mysqli_fetch_assoc($query)){
                         echo "<div class='matematika'>";
                         echo "<span>".$result['mapel']."</span>";
                         echo "<div id='matematikaContent'>";
-                        echo "<span>".$result['deskripsi']."</span>";
+                        echo "<span>".$result['deskripsi']."</span>&emsp13;&emsp13;<a name='del' href='process-delete-tugas.php?id=".$result['id']."' alt='delete' class='btn'><span class='mdi--trash-outline'></span></a>&emsp13;&emsp13;<a href='update-tugas.php?id=".$result['id']."' alt='edit' class='btn'><span class='raphael--edit'></span></a>";
                         echo "</div>";
                         echo "</div>";
                     }
@@ -81,13 +81,13 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
             <a>Due This Week</a>
             <div id="tasks-week">
                 <?php
-                    $sql = "SELECT kpm.Nama as 'mapel', t.Nama as 'deskripsi' FROM tugas as t join kp_mapel as kpm on t.ID_kp = kpm.ID_kp WHERE deadline BETWEEN DATE(NOW()) AND DATE_ADD(DATE(NOW()), INTERVAL 7 DAY);";
+                    $sql = "SELECT t.ID as 'id', kpm.Nama as 'mapel', t.Nama as 'deskripsi' FROM tugas as t join kp_mapel as kpm on t.ID_kp = kpm.ID_kp WHERE deadline BETWEEN DATE(NOW()) AND DATE_ADD(DATE(NOW()), INTERVAL 7 DAY);";
                     $query = mysqli_query($db, $sql);
                     while($result = mysqli_fetch_assoc($query)){
                         echo "<div class='matematika'>";
                         echo "<span>".$result['mapel']."</span>";
                         echo "<div id='matematikaContent'>";
-                        echo "<span>".$result['deskripsi']."</span>";
+                        echo "<span>".$result['deskripsi']."</span>&emsp13;&emsp13;<a name='del' href='process-delete-tugas.php?id=".$result['id']."' alt='delete' class='btn'><span class='mdi--trash-outline'></span></a>&emsp13;&emsp13;<a href='update-tugas.php?id=".$result['id']."' alt='edit' class='btn'><span class='raphael--edit'></span></a>";
                         echo "</div>";
                         echo "</div>";
                     }
@@ -99,13 +99,13 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
             <a>Due This Month</a>
             <div id="tasks-month">
                 <?php
-                    $sql = "SELECT kpm.Nama as 'mapel', t.Nama as 'deskripsi' FROM tugas as t join kp_mapel as kpm on t.ID_kp = kpm.ID_kp WHERE deadline BETWEEN DATE(NOW()) AND DATE_ADD(DATE(NOW()), INTERVAL 30 DAY);";
+                    $sql = "SELECT t.ID as 'id', kpm.Nama as 'mapel', t.Nama as 'deskripsi' FROM tugas as t join kp_mapel as kpm on t.ID_kp = kpm.ID_kp WHERE deadline BETWEEN DATE(NOW()) AND DATE_ADD(DATE(NOW()), INTERVAL 30 DAY);";
                     $query = mysqli_query($db, $sql);
                     while($result = mysqli_fetch_assoc($query)){
                         echo "<div class='matematika'>";
                         echo "<span>".$result['mapel']."</span>";
                         echo "<div id='matematikaContent'>";
-                        echo "<span>".$result['deskripsi']."</span>";
+                        echo "<span>".$result['deskripsi']."</span>&emsp13;&emsp13;<a name='del' href='process-delete-tugas.php?id=".$result['id']."' alt='delete' class='btn'><span class='mdi--trash-outline'></span></a>&emsp13;&emsp13;<a href='update-tugas.php?id=".$result['id']."' alt='edit' class='btn'><span class='raphael--edit'></span></a>";
                         echo "</div>";
                         echo "</div>";
                     }

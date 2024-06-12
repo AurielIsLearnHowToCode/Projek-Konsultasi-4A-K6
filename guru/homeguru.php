@@ -31,9 +31,9 @@
             </div>
 
             <div class="menu">
-                <a href="home.php">Dashboard</a>
+                <a href="homeguru.php">Dashboard</a>
                 <a href="mapel.php">Mata Pelajaran</a>
-                <a href="event.php">Event</a>
+                <a href="eventguru.php">Event</a>
             </div>
             
             <div class="overlay" onclick="togglePenggunaContent()"></div>
@@ -100,7 +100,7 @@
     </div>
     
     <div class="button">
-        <a href="deadline.php" class="btn-1">View All Tasks</a>
+        <a href="deadlineguru.php" class="btn-1">View All Tasks</a>
     </div>
     
     <div class="maincontent">

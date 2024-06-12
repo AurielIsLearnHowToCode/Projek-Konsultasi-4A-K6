@@ -9,6 +9,14 @@
         header('Location: ../login-page/LoginGuru.php'); // Redirect ke halaman login jika tidak ada session login
         exit;
     }
+
+    $id = $_GET['id'];
+    $sql = "SELECT ID_kp FROM tugas WHERE ID = ".$id;
+    $query = mysqli_query($db, $sql);
+    $hasil = "";
+    while($result = mysqli_fetch_assoc($query)){
+        $hasil = $result['ID_kp'];
+    }
 ?>
 
 <!DOCTYPE html>
@@ -29,22 +37,33 @@
         </div>
         <a href="homeguru.php">Dashboard</a>
         <a href="mapel.php">Mata Pelajaran</a>
-        <a href="eventguru.php">Event</a>
+        <a href="eventguru.php/<?php echo $hasil ?>">Event</a>
     </div>
-    <form action="process-input-tugas.php" class="form-container1" method="post">
+    <form action="process-update-tugas.php" class="form-container1" method="post">
+        <input type="hidden" name="id" value="<?php echo $id ?>">
         <label for="matapelajaran"></label>
         <select name="mata-pelajaran" id="matpel">
             <option value="select">Pilih Mata Pelajaran</option>
             <?php
                 $sql = "SELECT * FROM kp_mapel GROUP BY Nama ORDER BY Nama ASC";
                 $query = mysqli_query($db, $sql);
-                while($result = mysqli_fetch_array($query)){
-                    echo "<option value='".$result['ID_kp']."' data-nama='".$result['Nama']."' >".$result['Nama']."</option>";
+
+                while($result = mysqli_fetch_assoc($query)){
+                    $sel = ($hasil == $result['ID_kp'])? "selected" : "";
+                    echo "<option value='".$result['ID_kp']."' data-nama='".$result['Nama']."' ".$sel.">".$result['Nama']."</option>";
                 }
             ?>
         </select>
         <br>
-        <textarea id="deskripsiTugas" name="deskripsi" placeholder="Deskripsi tugas..."></textarea>
+        <?php 
+            $sql = "SELECT * FROM tugas WHERE ID = '".$id."'";
+            $query = mysqli_query($db, $sql);
+            $deskripsi = "";
+            while($result = mysqli_fetch_assoc($query)){
+                $deskripsi = $result['Nama'];
+            }
+        ?>
+        <textarea id="deskripsiTugas" name="deskripsi" placeholder="Deskripsi tugas..."><?php echo $deskripsi?></textarea>
     
         
         <div class="center">
@@ -52,7 +71,7 @@
             <label for="click" class="click">Input</label>
             <div class="content">
                 <div class="header">
-                    <h2>Apakah Anda Ingin Menambahkan Tugas?</h2>
+                    <h2>Apakah anda ingin mengedit tugas?</h2>
                 </div>
                 <div class="buttons">
                     <div class="buttons-item">

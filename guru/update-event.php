@@ -9,6 +9,8 @@
         header('Location: ../login-page/LoginGuru.php'); // Redirect ke halaman login jika tidak ada session login
         exit;
     }
+
+    $id = $_GET['id'];
 ?>
 
 <!DOCTYPE html>
@@ -31,8 +33,19 @@
         <a href="mapel.php">Mata Pelajaran</a>
         <a href="eventguru.php">Event</a>
     </div>
-    <form action="process-input-event.php" class="form-container" method="post">
-        <textarea id="deskripsi" name="deskripsi" placeholder="Deskripsi event..." require></textarea>
+    <form action="process-update-event.php" class="form-container" method="post">
+        <?php
+            $sql = "SELECT * FROM notifikasi WHERE id=".$id;
+            $query = mysqli_query($db, $sql);
+            $hasil = "";
+            $jenis = "";
+            while($result = mysqli_fetch_assoc($query)){
+                $hasil = $result['Pesan_Pemberitahuan'];
+                $jenis = $result['Jenis'];
+            }
+        ?>
+        <input type="hidden" name='id' value='<?php echo $id ?>'>
+        <textarea id="deskripsi" name="deskripsi" placeholder="Deskripsi event..." require><?php echo $hasil?></textarea>
         <div class="button-container">
             <button type="submit" id="announcementButton" name="announcement" class="button-announcement">Announcement</button>
             <button type="submit" id="eventButton" name="input_event" class="button-input-event">Input As Event</button>

@@ -186,6 +186,7 @@ select:hover, textarea:hover {
 
 .yes-btn {
     background-color: rgba(0, 219, 22, 0.8);
+    border-width: 0px;
 }
 
 .no-btn {
