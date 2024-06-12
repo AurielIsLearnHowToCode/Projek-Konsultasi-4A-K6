@@ -116,6 +116,5 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
 
     <div class="overlay" onclick="togglePenggunaContent()"></div>
     <script src="styles/deadline.js"></script>
-    <script src="../Assets/clock&announcement.js"></script>
 </body>
 </html>

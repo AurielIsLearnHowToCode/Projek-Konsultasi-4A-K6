@@ -17,11 +17,11 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nugas: Input Tugas</title>
-    <link rel="stylesheet" href="styles/input-event.css">
+    <link rel="stylesheet" href="input-event.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Jockey+One&display=swap" rel="stylesheet">
-        
+    <script defer src="notifikasitelegram.js"></script>
 </head>
 <body>
     <div class="navbar">
@@ -32,11 +32,11 @@
         <a href="mapel.php">Mata Pelajaran</a>
         <a href="event.php">Event</a>
     </div>
-    <form action="process-input-event.php" class="form-container" method="post">
-        <textarea id="deskripsi" name="deskripsi" placeholder="Deskripsi event..." require></textarea>
+    <form action="process-input-tugas.php" class="form-container" method="post">
+        <textarea id="deskripsi" name="deskripsi" placeholder="Deskripsi event..."></textarea>
         <div class="button-container">
-            <button type="submit" name="announcement" class="button-announcement">Announcement</button>
-            <button type="submit" name="input_event" class="button-input-event">Input As Event</button>
+            <button id="announcementButton" type="submit" name="announcement" class="button-announcement">Announcement</button>
+            <button id="eventButton" type="submit" name="input_event" class="button-input-event">Input As Event</button>
         </div>
     </form>
 </body>
